@@ -43,7 +43,11 @@
     </div>
 
     <div class="row">
-        <form action="/reply/<%= post.id %>" method="POST">
+        <% if ( post.network.name == 'twitter') { %>
+        <form action="/twitter/reply/<%= post.id %>" method="POST">
+        <% } else { %>
+        <form action="/facebook/reply/<%= post.id %>" method="POST">
+        <% } %>
             <div class="form-group">
                 <textarea name="reply" class="form-control" rows="3" placeholder="Your reply here..."></textarea>
             </div>

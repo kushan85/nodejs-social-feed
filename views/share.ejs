@@ -43,7 +43,11 @@
     </div>
 
     <div class="row">
-        <form action="/share/<%= post.id %>" method="POST">
+        <% if ( post.network.name == 'twitter') { %>
+        <form action="/twitter/share/<%= post.id %>" method="POST">
+        <% } else { %>
+        <form action="/facebook/share/<%= post.id %>" method="POST">
+        <% } %>
             <div class="form-group">
                 <textarea name="share" class="form-control" rows="3" placeholder="Add a personal message..."></textarea>
             </div>
